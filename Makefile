@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mentohust
-PKG_VERSION:=0.3.1
+PKG_VERSION:=0.3.2
 PKG_RELEASE:=1
 
 
@@ -23,7 +23,7 @@ define Package/mentohust
   CATEGORY:=Network
   DEPENDS:=+libpcap
   TITLE:=A Ruijie Client Daemon
-  URL:=https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git
+  URL:=https://github.com/tuanqing/openwrt-mentohust.git
   SUBMENU:=Ruijie
 endef
 
@@ -35,7 +35,7 @@ endef
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	$(CP) ./src/* $(PKG_BUILD_DIR)/
-	$(SED) 's/dhclient/udhcpc -i/g' $(PKG_BUILD_DIR)/myconfig.c
+	$(SED) 's/dhclient//g' $(PKG_BUILD_DIR)/myconfig.c
 endef
 
 
